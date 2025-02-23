@@ -1,7 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.user = void 0;
-class user {
+exports.User = void 0;
+class User {
     constructor(id, name, email, role, password) {
         this.id = id;
         this.name = name;
@@ -11,28 +11,34 @@ class user {
     }
     register(email, password) {
         if (this.email === email && this.password === password) {
+            console.log(`${this.name} registered successfully.`);
             return true;
         }
-        else {
-            return false;
-        }
-        return true;
+        console.log(`Registration failed for ${email}.`);
+        return false;
     }
     login(email, password) {
         if (this.email === email && this.password === password) {
+            console.log(`${this.name} logged in successfully.`);
             return true;
         }
-        else {
-            return false;
-        }
+        console.log(`Login failed for ${email}.`);
+        return false;
     }
     logout() {
         if (this.email) {
+            console.log(`${this.name} logged out successfully.`);
             return true;
         }
-        else {
-            return false;
-        }
+        console.log(`Logout failed.`);
+        return false;
+    }
+    getName() {
+        return this.name;
+    }
+    getEmail() {
+        return this.email;
     }
 }
-exports.user = user;
+exports.User = User;
+exports.default = User;
